@@ -2,24 +2,17 @@ import React from 'react'
 import { products } from '../products'
 import { useContext } from 'react'
 // eslint-disable-next-line
-import { CartContext } from '../context/CartContext';
 import { useEffect } from 'react'
 import { fetchProducts } from '../data/getProducts'
+import { CartContext } from '../context/CartContext'
 
 const ProductList = () => {
-    const { cart, addToCart, removeFromCart, clearCart, updateCart } = useContext(CartContext)
 
-    // useEffect(() => {
-    //     fetchProducts().then((data) => {
-    //         // console.log(data)
-    //         updateCart(cart)
-    //     }
-    //     )
-    // },[])
+    const { addToCart } = useContext(CartContext)
 
-    console.log(cart)
     return (
         <div>
+            <h2>Produc List</h2>
             {
                 products.map((product) => {
                     return (
@@ -28,7 +21,7 @@ const ProductList = () => {
                             {/* <img src={product.image} alt={product.title} /> */}
                             <p>{product.description}</p>
                             <p>{product.price}</p>
-                            <button onClick={(e)=>addToCart(product)}  >Agregar al carrito</button>
+                            <button onClick={()=>addToCart(product)}   >Agregar al carrito</button>
                         </div>
                     )
                 })
