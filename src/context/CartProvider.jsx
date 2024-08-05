@@ -1,9 +1,6 @@
 import { useState } from "react"
 import { CartContext } from "./CartContext"
 
-// import { useEffect } from "react"
-
-
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
 
@@ -21,8 +18,6 @@ export const CartProvider = ({children}) => {
             setCart([...cart, { id, title, price, quantity: 1 }])
         }
     }
-
-    
 
     const removeFromCart = (id) => {
         const newCart = cart.filter(item => item.id !== id)
